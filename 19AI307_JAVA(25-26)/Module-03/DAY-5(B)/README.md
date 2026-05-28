@@ -1,31 +1,21 @@
-# Ex.No:5(E) MULTITHREADING -SYNCHRONIZATION
+# Ex.No:3(F) WRAPPER CLASS
 
 ## QUESTION:
-Maintain two int variables a and b, read their initial values from user. Use synchronized block to swap them and print swapped values.
-Input:
-Two lines: a and b values
-Output:
-a = <swapped_a>
-b = <swapped_b>
+Write a Java program to convert a string to an integer using a wrapper class and perform addition.
 
 ## AIM:
-To demonstrate the use of a synchronized block for safely swapping two integer variables.
+To convert string inputs into integers using the wrapper class and perform addition.
 
 ## ALGORITHM :
-1.	Read two integer values a and b from the user.
-2.	Create a lock object for synchronization.
-3.	Use a synchronized(lock) block to perform the swapping.
-4.	Swap values using a temporary variable.
-5.	Print the swapped values of a and b.
-
-
-
-
+1.	Read two numbers as strings.
+2.	Convert them to integers using Integer.parseInt().
+3.	Add the two integers.
+4.	Display the sum.
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Synchronization concept using Java
+Program to implement a InnerClass using Java
 Developed by: Lokesh Reddy A
 RegisterNumber: 212223040104
 */
@@ -35,56 +25,34 @@ RegisterNumber: 212223040104
 ```
 import java.util.Scanner;
 
-public class SwapSynchronized {
-    private int a;
-    private int b;
-
-    public SwapSynchronized(int a, int b) {
-        this.a = a;
-        this.b = b;
-    }
-
-    public void swap() {
-        Object lock = new Object(); // lock object for synchronization
-        synchronized (lock) {
-            int temp = a;
-            a = b;
-            b = temp;
-        }
-    }
-
-    public void printValues() {
-        System.out.println("a = " + a);
-        System.out.println("b = " + b);
-    }
-
+public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        int a = Integer.parseInt(sc.nextLine());
-        int b = Integer.parseInt(sc.nextLine());
+        String str1 = scanner.next();
 
-        SwapSynchronized swapper = new SwapSynchronized(a, b);
-        swapper.swap();
-        swapper.printValues();
+        String str2 = scanner.next();
 
-        sc.close();
+        scanner.close();
+
+        try {
+            int num1 = Integer.parseInt(str1);
+            int num2 = Integer.parseInt(str2);
+
+
+            int sum = num1 + num2;
+            System.out.println("Sum = " + sum);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+        }
     }
 }
 ```
-
-
-
-
-
-
 ## OUTPUT:
-<img width="1315" height="352" alt="image" src="https://github.com/user-attachments/assets/4ac75d2b-e703-4ae2-9edb-c22bc5dc3b45" />
-
+<img width="1223" height="414" alt="image" src="https://github.com/user-attachments/assets/899591cc-4837-4c4d-9693-94fdcade6361" />
 
 ## RESULT:
-The program successfully swaps the two integers inside a synchronized block and displays the swapped values safely.
-
+The program successfully converts strings to integers and displays their sum.
 
 
 
